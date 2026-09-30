@@ -74,12 +74,7 @@
 
 &trackball_listener {
     status = "okay";
-    input-processors = <&mouse_runtime_input_processor>;
-
-    scroll {
-        layers = <2>;
-        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_scaler 1 16>, <&zip_xy_to_scroll_mapper>, <&scroll_runtime_input_processor>;
-    };
+    input-processors = <&mouse_runtime_input_processor &scroll_runtime_input_processor>;
 };
 
 // 右手OLED用I2C設定

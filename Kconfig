@@ -1,1 +1,8 @@
 # LoTom user-config module Kconfig entry point.
+
+config LOTOM_INPUT_PROCESSOR_GESTURE
+    bool "LoTom trackball gestures (Cygnus behavior)"
+    default y
+    depends on ZMK_POINTING
+    depends on !ZMK_SPLIT || ZMK_SPLIT_ROLE_CENTRAL
+    depends on DT_HAS_CYGNUS_INPUT_PROCESSOR_GESTURE_ENABLED

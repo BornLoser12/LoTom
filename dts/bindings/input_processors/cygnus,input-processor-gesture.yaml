@@ -1,0 +1,48 @@
+description: Cygnus trackball gesture input processor
+
+compatible: "cygnus,input-processor-gesture"
+
+include: ip_zero_param.yaml
+
+properties:
+  "#input-processor-cells":
+    type: int
+    const: 0
+
+  bindings:
+    type: phandle-array
+    required: true
+    description: "Bindings for right, left, down, and up gestures, in that order."
+
+  gesture-layer:
+    type: int
+    required: true
+    description: "Layer used by the listener override; transitions discard pending movement."
+
+  tick:
+    type: int
+    description: "Accumulated movement needed to trigger one gesture."
+
+  threshold:
+    type: int
+    description: "Minimum single report movement to consider."
+
+  max-threshold:
+    type: int
+    description: "Maximum single report movement to consider."
+
+  tap-ms:
+    type: int
+    description: "How long to hold the triggered binding before releasing it."
+
+  wait-ms:
+    type: int
+    description: "Minimum time between triggered gestures."
+
+  max-pending-activations:
+    type: int
+    description: "Maximum accumulated activations retained per axis."
+
+  track-remainders:
+    type: boolean
+    description: "Keep accumulated movement after triggering a gesture."
